@@ -107,19 +107,15 @@ echo '<blockquote>';
     	echo "<tr><td>";
     	echo '<img src="'.$row["Image"].'"width="20%"><br>';
     	echo $row['BookTitle']."<br>RM".$row['Price']."<br>";
-    	echo "Quantity: ".$row['Quantity']."<br>";
-    	echo "Total Price: RM".$row['TotalPrice']."</td></tr>";
-    	$total += $row['TotalPrice'];
-    }
-    echo "<tr><td style='text-align: right;background-color: #f2f2f2;''>";
-    echo "Total: <b>RM".$total."</b><center><form action='checkout.php' method='post'><input class='button' type='submit' name='checkout' value='CHECKOUT'></form></center>";
-    echo "</td></tr>";
+    	echo "</td></tr>";
+	}
 	echo "</table>";
-	echo '</blockquote>';
+	$conn->close();
 ?>
 </body>
 
 </html>
+
 
 
 
