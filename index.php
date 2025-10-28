@@ -41,7 +41,7 @@ if (isset($_POST['ac'])) {
         $totalPrice = $price * $quantity;
 
         // Insert into cart
-        $insert = $conn->prepare("INSERT INTO cart (BookID, Quantity, Price, TotalPrice) VALUES (?, ?, ?, ?)");
+        $insert = $conn->prepare("INSERT INTO Cart (BookID, Quantity, Price, TotalPrice) VALUES (?, ?, ?, ?)");
         $insert->bind_param("sidd", $bookID, $quantity, $price, $totalPrice);
         $insert->execute();
     }
@@ -51,7 +51,7 @@ if (isset($_POST['ac'])) {
 // EMPTY CART FUNCTION
 // --------------------
 if (isset($_POST['delc'])) {
-    $conn->query("DELETE FROM cart");
+    $conn->query("DELETE FROM Cart");
 }
 
 // --------------------
@@ -148,4 +148,5 @@ $conn->close();
 
 </body>
 </html>
+
 
