@@ -3,8 +3,6 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/${USER}/public_html/
     - echo "Starting deployment to $DEPLOYPATH"
-    # Clean existing files (optional)
     - /bin/rm -rf ${DEPLOYPATH}/*
-    # Copy new files
     - /bin/cp -R * ${DEPLOYPATH}
     - echo "Deployment completed successfully!"
