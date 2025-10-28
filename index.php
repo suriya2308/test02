@@ -54,7 +54,7 @@ session_start();
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
 	} 
-		$sql = "USE bookstore";
+		$sql = "USE suriyafunflys_db";
 		$conn->query($sql);
 
 		$sql = "DELETE FROM cart";
@@ -123,6 +123,7 @@ echo '<blockquote>';
 </body>
 
 </html>
+
 
 
 
