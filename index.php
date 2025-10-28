@@ -29,7 +29,7 @@ if (isset($_POST['ac'])) {
     $quantity = intval($_POST['quantity']);
 
     // Get book details
-    $sql = "SELECT * FROM book WHERE BookID = ?";
+    $sql = "SELECT * FROM Book WHERE BookID = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $bookID);
     $stmt->execute();
@@ -78,7 +78,7 @@ echo '<blockquote>';
 echo "<table id='myTable' style='width:80%; float:left'>";
 echo "<tr>";
 
-$sql = "SELECT * FROM book";
+$sql = "SELECT * FROM Book";
 $result = $conn->query($sql);
 
 if ($result && $result->num_rows > 0) {
@@ -106,8 +106,8 @@ echo "</tr></table>";
 // --------------------
 // DISPLAY CART
 // --------------------
-$sql = "SELECT book.BookTitle, book.Image, cart.Price, cart.Quantity, cart.TotalPrice 
-        FROM book INNER JOIN cart ON book.BookID = cart.BookID";
+$sql = "SELECT Book.BookTitle, Book.Image, Cart.Price, Cart.Quantity, Cart.TotalPrice 
+        FROM Book INNER JOIN Cart ON Book.BookID = Cart.BookID";
 $result = $conn->query($sql);
 
 echo "<table style='width:20%; float:right;'>";
@@ -148,3 +148,4 @@ $conn->close();
 
 </body>
 </html>
+
