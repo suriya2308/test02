@@ -49,17 +49,12 @@ session_start();
 	$username = "suriyafunflys_user";
 	$password = "Suriya@123456";
 
-	$conn = new mysqli("localhost", "suriyafunflys_user", "Suriya@123456");
+	$conn = new mysqli($servername, $username, $password);
 
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "USE bookstore";
-	$conn->query($sql);	
-
-	$sql = "SELECT * FROM book";
-	$result = $conn->query($sql);
 ?>	
 
 <?php
@@ -123,6 +118,7 @@ echo '<blockquote>';
 </body>
 
 </html>
+
 
 
 
