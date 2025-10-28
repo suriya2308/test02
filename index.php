@@ -8,7 +8,7 @@ session_start();
 	if(isset($_POST['ac'])){
 		$servername = "localhost";
 		$username = "suriyafunflys_user";
-		$password = "";
+		$password = "Suriya@123456";
 
 		$conn = new mysqli($servername, $username, $password);
 
@@ -34,8 +34,8 @@ session_start();
 
 	if(isset($_POST['delc'])){
 		$servername = "localhost";
-		$username = "root";
-		$password = "";
+		$username = "suriyafunflys_user";
+		$password = "Suriya@123456";
 
 		$conn = new mysqli($servername, $username, $password);
 
@@ -51,8 +51,8 @@ session_start();
 	}
 
 	$servername = "localhost";
-	$username = "root";
-	$password = "";
+	$username = "suriyafunflys_user";
+	$password = "Suriya@123456";
 
 	$conn = new mysqli($servername, $username, $password);
 
@@ -128,3 +128,4 @@ echo '<blockquote>';
 </body>
 
 </html>
+
