@@ -43,11 +43,6 @@ session_start();
 		    die("Connection failed: " . $conn->connect_error);
 		} 
 
-		$sql = "USE bookstore";
-		$conn->query($sql);
-
-		$sql = "DELETE FROM cart";
-		$conn->query($sql);
 	}
 
 	$servername = "localhost";
@@ -128,5 +123,6 @@ echo '<blockquote>';
 </body>
 
 </html>
+
 
 
