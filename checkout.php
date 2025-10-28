@@ -11,8 +11,8 @@ session_start();
 
 if(isset($_SESSION['id'])){
 	$servername = "localhost";
-	$username = "root";
-	$password = "";
+	$username = "suriyafunflys_user";
+	$password = "Suriya@123456";
 
 	$conn = new mysqli($servername, $username, $password); 
 
@@ -20,19 +20,19 @@ if(isset($_SESSION['id'])){
 	    die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "USE bookstore";
+	$sql = "USE suriyafunflys_db";
 	$conn->query($sql);
 
-	$sql = "SELECT CustomerID from customer WHERE UserID = ".$_SESSION['id']."";
+	$sql = "SELECT CustomerID from Customer WHERE UserID = ".$_SESSION['id']."";
 	$result = $conn->query($sql);
 	while($row = $result->fetch_assoc()){
 		$cID = $row['CustomerID'];
 	}
 
-	$sql = "UPDATE cart SET CustomerID = ".$cID." WHERE 1";
+	$sql = "UPDATE Cart SET CustomerID = ".$cID." WHERE 1";
 	$conn->query($sql);
 
-	$sql = "SELECT * FROM cart";
+	$sql = "SELECT * FROM Cart";
 	$result = $conn->query($sql);
 	while($row = $result->fetch_assoc()){
 		$sql = "INSERT INTO `order`(CustomerID, BookID, DatePurchase, Quantity, TotalPrice, Status) 
@@ -40,12 +40,12 @@ if(isset($_SESSION['id'])){
 		."', CURRENT_TIME, ".$row['Quantity'].", ".$row['TotalPrice'].", 'N')";
 		$conn->query($sql);
 	}
-	$sql = "DELETE FROM cart";
+	$sql = "DELETE FROM Cart";
 	$conn->query($sql);
 
-	$sql = "SELECT customer.CustomerName, customer.CustomerIC, customer.CustomerGender, customer.CustomerAddress, customer.CustomerEmail, customer.CustomerPhone, book.BookTitle, book.Price, book.Image, `order`.`DatePurchase`, `order`.`Quantity`, `order`.`TotalPrice`
-		FROM customer, book, `order`
-		WHERE `order`.`CustomerID` = customer.CustomerID AND `order`.`BookID` = book.BookID AND `order`.`Status` = 'N' AND `order`.`CustomerID` = ".$cID."";
+	$sql = "SELECT Customer.CustomerName, Customer.CustomerIC, Customer.CustomerGender, Customer.CustomerAddress, Customer.CustomerEmail, Customer.CustomerPhone, Book.BookTitle, Book.Price, Book.Image, `order`.`DatePurchase`, `order`.`Quantity`, `order`.`TotalPrice`
+		FROM Customer, Book, `Order`
+		WHERE `order`.`CustomerID` = Customer.CustomerID AND `Order`.`BookID` = Book.BookID AND `Order`.`Status` = 'N' AND `Order`.`CustomerID` = ".$cID."";
 	$result = $conn->query($sql);
 	echo '<div class="container">';
 	echo '<blockquote>';
@@ -357,4 +357,5 @@ if(isset($_POST['submitButton'])){
 ?>
 </blockquote>
 </body>
+
 </html>
