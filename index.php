@@ -7,7 +7,7 @@
 session_start();
 	if(isset($_POST['ac'])){
 		$servername = "localhost";
-		$username = "root";
+		$username = "suriyafunflys_user";
 		$password = "";
 
 		$conn = new mysqli($servername, $username, $password);
@@ -126,4 +126,5 @@ echo '<blockquote>';
 	echo '</blockquote>';
 ?>
 </body>
+
 </html>
