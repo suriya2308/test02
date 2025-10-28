@@ -57,9 +57,6 @@ session_start();
 		$sql = "USE suriyafunflys_db";
 		$conn->query($sql);
 
-		$sql = "DELETE FROM cart";
-		$conn->query($sql);
-
 ?>	
 
 <?php
@@ -123,6 +120,7 @@ echo '<blockquote>';
 </body>
 
 </html>
+
 
 
 
