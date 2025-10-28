@@ -13,8 +13,8 @@ $oPhone;
 $oAddress;
 
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "suriyafunflys_user";
+$password = "Suriya@123";
 
 $conn = new mysqli($servername, $username, $password); 
 
@@ -22,12 +22,12 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "USE bookstore";
+$sql = "USE suriyafunflys_db";
 $conn->query($sql);
 
-$sql = "SELECT users.UserName, users.Password, customer.CustomerName, customer.CustomerIC, customer.CustomerEmail, customer.CustomerPhone, customer.CustomerGender, customer.CustomerAddress
-	FROM users, customer
-	WHERE users.UserID = customer.UserID AND users.UserID = ".$_SESSION['id']."";
+$sql = "SELECT Users.UserName, Users.Password, Customer.CustomerName, Customer.CustomerIC, Customer.CustomerEmail, Customer.CustomerPhone, Customer.CustomerGender, Customer.CustomerAddress
+	FROM Users, Customer
+	WHERE Users.UserID = Customer.UserID AND Users.UserID = ".$_SESSION['id']."";
 $result = $conn->query($sql);
 while($row = $result->fetch_assoc()){
 	$oUserName = $row['UserName'];
@@ -102,8 +102,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 													$address = $_POST['address'];
 
 													$servername = "localhost";
-													$username = "root";
-													$password = "";
+													$username = "suriyafunflys_user";
+													$password = "Suriya@123456";
 
 													$conn = new mysqli($servername, $username, $password); 
 
@@ -111,10 +111,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 													    die("Connection failed: " . $conn->connect_error);
 													} 
 
-													$sql = "USE bookstore";
+													$sql = "USE suriyafunflys_db";
 													$conn->query($sql);
 
-													$sql = "UPDATE users SET UserName = '".$uname."', Password = '".$upassword."' WHERE UserID = "
+													$sql = "UPDATE Users SET UserName = '".$uname."', Password = '".$upassword."' WHERE UserID = "
 													.$_SESSION['id']."";
 													$conn->query($sql);
 
@@ -190,4 +190,5 @@ function test_input($data){
 </blockquote>
 </center>
 </body>
+
 </html>
